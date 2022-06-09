@@ -11,13 +11,11 @@ We will be using neural-newtwork (**TensorFlow**) to predict the nozzle contour 
 1. We will first see if an neural-network can be trained to fit the the contour of a single nozzle geometry wherein the input features is simply the x-coordinate (`x`) and the desired output prediction is its y-coordinate (`y`). 
 2. Next, we will see if we can extend this to predict the nozzle contour of any nozzle given the input variables x-coordinate (`x`), inlet Mach number (`M_0`) and exit Mach number (`M_e`). The model will be tested upon a seperate validation dataset.
 
-###### Note:
-Only the curved section of the nozzle is being saved. The very first segment (which is a straight line) is discarded. To understand the code refer [here](https://github.com/neelaydoshi/nozzle-design-using-MoC).
-
 ---------------------------
 
 ##### Folders
--> MoC	: contains the files for generating the training and validation dataset. Read the `README.md` file inside the folder for further information.
+`MoC`
+-> contains the files for generating the training and validation dataset. Read the `README.md` file inside the folder for further information.
 
 ---------------------------
 
