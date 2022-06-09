@@ -22,7 +22,6 @@ We will be using neural-newtwork (**TensorFlow**) to predict the nozzle contour 
 ##### Files
 
 `SERN_Contour_Prediction_Using_Neural_Network.ipynb`
-
 -> contains the codes of the aforementioned neural-network
 
 ---------------------------
