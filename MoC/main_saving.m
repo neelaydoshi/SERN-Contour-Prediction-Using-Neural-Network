@@ -10,29 +10,6 @@
 %
 %%%%%%%%%%%%%%
 
-%% %%%%%%%%%%%%
-% Single Dataset
-clc
-clear
-format short g
-
-
-%%%%%%%%%%%%%%
-M0      = 1.5;
-Me      = 3;
-n       = 50;
-gamma   = 1.4;
-
-
-%%%%%%%%%%%%%%
-Table = MoC(M0, Me, n, gamma);
-fileID = fopen('data/nozzle_1.txt','w');
-fprintf(fileID,'%.4f,%.4f\n', Table([1, 4], :));
-fclose(fileID);
-
-fprintf('############# \n');
-disp(Table');
-fprintf('############# \n');
 
 %% %%%%%%%%%%%%
 % Training Dataset
@@ -47,22 +24,30 @@ gamma   = 1.4;
 i = 0;
 
 %%%%%%%%%%%%%%
+% open file and erase previous content
+fileID = fopen('data/nozzle_train.txt', 'w');
+%
 fprintf('############# \n');
-for M0 = 1.4:0.2:2.2
+for M0 = 1.5:0.1:2.4
 
-    for Me = 3.4:0.2:5.2
+    for Me = 3:0.1:5
         
         i = i+1;
         fprintf('i = %d \t M0 = %.2f \t Me = %.2f \n', i, M0, Me);
 
         Table = MoC(M0, Me, n, gamma);
-        fileID = fopen('data/nozzle_train.txt','a+');
+        
         fprintf(fileID,'%.4f,%.4f,%.2f,%.2f\n', Table);
-        fclose(fileID);       
-
+        
     end
 end
 
+%%%%%%%%%%%%%%
+% close file
+fclose(fileID);    
+
+%%%%%%%%%%%%%%
+% print summary
 fprintf('############# \n');
 fprintf('Number of Nozzles \t\t : %d \n', i );
 fprintf('Number of Training Examples \t : %d \n', i*n );
@@ -81,22 +66,27 @@ gamma   = 1.4;
 i = 0;
 
 %%%%%%%%%%%%%%
+% open file and erase previous content
+fileID = fopen('data/nozzle_test.txt', 'w');
 fprintf('############# \n');
-for M0 = 1.7 : 0.2 : 2.1
+for M0 = 1.55 : 0.2 : 2.35
 
-    for Me = 3.7 : 0.2 : 5.1
+    for Me = 3.05 : 0.2 : 4.85
         
         i = i+1;
         fprintf('i = %d \t M0 = %.2f \t Me = %.2f \n', i, M0, Me);
 
         Table = MoC(M0, Me, n, gamma);
-        fileID = fopen('data/nozzle_test.txt','a+');
         fprintf(fileID,'%.4f,%.4f,%.2f,%.2f\n', Table);
-        fclose(fileID);       
-
     end
 end
 
+%%%%%%%%%%%%%%
+% close file
+fclose(fileID);    
+
+%%%%%%%%%%%%%%
+% print summary
 fprintf('############# \n');
 fprintf('Number of Nozzles \t\t : %d \n', i );
 fprintf('Number of Testing Examples \t : %d \n', i*n );
