@@ -15,6 +15,7 @@ We will be using neural-newtwork (**TensorFlow**) to predict the nozzle contour 
 
 ##### Folders
 `MoC`
+
 -> contains the files for generating the training and validation dataset. Read the `README.md` file inside the folder for further information.
 
 ---------------------------
@@ -22,6 +23,7 @@ We will be using neural-newtwork (**TensorFlow**) to predict the nozzle contour 
 ##### Files
 
 `SERN_Contour_Prediction_Using_Neural_Network.ipynb`
+
 -> contains the codes of the aforementioned neural-network
 
 ---------------------------
